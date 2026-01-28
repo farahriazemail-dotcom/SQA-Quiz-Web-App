@@ -1,0 +1,50 @@
+
+<!DOCTYPE html> 
+<html>
+<head>
+<title>QuizApplication</title> 
+<link rel="stylesheet" href="css/style.css"> 
+</head> 
+<body> 
+  <header class="dash-header">
+<span>SQA Quiz Application</span> 
+<span> 👤 <b id="user"></b> <button onclick="logout()">Logout</button> </span> 
+</header>
+<h2 class="center">Choose Testing Type</h2>
+<div class="categories">
+  <div class="card">
+    <h2>Unit Testing</h2>
+    <p>Unit testing is a software testing technique in which individual units or modules are tested separately.</p>
+    <button onclick="start('Unit Testing')">Start Quiz</button>
+  </div>
+
+  <div class="card">
+    <h2>Integration Testing</h2>
+    <p>Integration testing verifies that combined modules work correctly together as a group.</p>
+    <button onclick="start('Integration Testing')">Start Quiz</button>
+  </div>
+
+  <div class="card">
+    <h2>System Testing</h2>
+    <p>System testing evaluates the complete integrated system as a whole.</p>
+    <button onclick="start('System Testing')">Start Quiz</button>
+  </div>
+
+  <div class="card">
+    <h2>Acceptance Testing</h2>
+    <p>Acceptance testing ensures the system meets user and business requirements.</p>
+    <button onclick="start('Acceptance Testing')">Start Quiz</button>
+  </div>
+
+  <div class="card">
+    <h2>Regression Testing</h2>
+    <p>Regression testing checks that new changes do not break existing functionality.</p>
+    <button onclick="start('Regression Testing')">Start Quiz</button>
+  </div>
+</div>
+<script> document.getElementById("user").innerText = localStorage.getItem("name"); 
+function start(cat){ localStorage.setItem("category", cat);
+ window.location.href = "quiz.html"; } 
+ function logout()
+ { window.location.href = "index.html"; } 
+ </script>

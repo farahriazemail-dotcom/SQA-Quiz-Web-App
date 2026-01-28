@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="dash-header">
+  <span>QuizApplication</span>
+  <span>
+    👤 <b id="user"></b>
+    <button onclick="logout()">Logout</button>
+  </span>
+</header>
+
+<h2 class="center" id="quiz-title"></h2>
+
+<div id="quiz-container">
+  <!-- All questions will appear here -->
+</div>
+
+<script>
+document.getElementById("user").innerText = localStorage.getItem("name");
+
+function logout(){
+  window.location.href="index.html";
+}
+
+// Quiz data
+const quizData = {
+  "Unit Testing": [
+  {q:"Unit testing is performed on which level?", options:["System","Integration","Module","User Interface"], answer:2 },
+  { q:"Who usually performs unit testing?", options:["Tester","End user","Developer","Client"], answer:2 },
+  { q:"Unit testing mainly focuses on?", options:["Whole application","Individual components","Database performance","Network security"], answer:1 },
+  { q:"Unit testing is done before which testing?", options:["System testing","Acceptance testing","Integration testing","Regression testing"], answer:2 },
+  { q:"Unit testing is mostly?", options:["Manual","Automated","Performance-based","Security-based"], answer:1 }
+
+  ],
+  "Integration Testing": [
+    { q:"Integration testing is used to test?", options:["Single module","Combined modules","UI design","Hardware"], answer:1 },
+  { q:"Integration testing is performed after?", options:["System testing","Acceptance testing","Unit testing","Regression testing"], answer:2 },
+  { q:"Which approach is used in integration testing?", options:["Black box","White box","Top-down","All of the above"], answer:3 },
+  { q:"The main purpose of integration testing is to find?", options:["Syntax errors","Interface defects","UI bugs","Requirement gaps"], answer:1 },
+  { q:"Which is NOT an integration testing method?", options:["Top-down","Bottom-up","Big bang","Alpha testing"], answer:3 }
+  ],
+  "System Testing": [
+ { q:"System testing tests the?", options:["Individual unit","Integrated system","Database only","Code logic"], answer:1 },
+  { q:"System testing is usually performed by?", options:["Developer","End user","Tester","Client"], answer:2 },
+  { q:"System testing is done in which environment?", options:["Production","Development","Testing","Live"], answer:2 },
+  { q:"System testing is based on?", options:["Code","Design","Requirements","Architecture"], answer:2 },
+  { q:"Which testing is part of system testing?", options:["Unit testing","Integration testing","Performance testing","White box testing"], answer:2 }
+  ],
+  "Acceptance Testing": [
+   { q:"Acceptance testing is performed to?", options:["Find bugs","Validate requirements","Improve code","Increase speed"], answer:1 },
+  { q:"Who performs acceptance testing?", options:["Developer","Tester","Client/User","Project manager"], answer:2 },
+  { q:"Acceptance testing is done?", options:["Before system testing","After system testing","During unit testing","Before integration testing"], answer:1 },
+  { q:"Which type is an acceptance testing?", options:["Alpha testing","Beta testing","Both A and B","Unit testing"], answer:2 },
+  { q:"Acceptance testing checks if the system is?", options:["Bug-free","User-friendly","Ready for release","Optimized"], answer:2 }
+  ],
+  "Regression Testing": [
+   { q:"Regression testing is done when?", options:["New project starts","Requirements change","Code is modified","Testing ends"], answer:2 },
+  { q:"The purpose of regression testing is to?", options:["Add new features","Check old functionality","Improve UI","Ensure existing features still work"], answer:3 },
+  { q:"Regression testing is usually?", options:["Manual only","Automated only","Both manual and automated","Never automated"], answer:2 },
+  { q:"Regression testing ensures that?", options:["New bugs are fixed","Old bugs reappear","Existing functionality is not broken","Performance improves"], answer:2 },
+  { q:"Which tool is commonly used for regression testing?", options:["Selenium","MS Word","Excel","PowerPoint"], answer:0 }
+]
+
+};
+
+// Get category
+let category = localStorage.getItem("category");
+let questions = quizData[category];
+document.getElementById("quiz-title").innerText = "Quiz Questions for: " + category;
+
+// Generate all questions
+const quizContainer = document.getElementById("quiz-container");
+let html = "";
+
+questions.forEach((q, idx) => {
+  html += `<div class="question-block">
+    <div class="question">${idx+1}. ${q.q}</div>
+    <div class="options">`;
+  q.options.forEach((opt, i) => {
+    html += `
+      <input type="radio" id="q${idx}_opt${i}" name="q${idx}" value="${i}">
+      <label for="q${idx}_opt${i}">${opt}</label>`;
+  });
+  html += `</div></div><hr>`;
+});
+
+html += `<button id="submit-btn" onclick="submitQuiz()">Submit</button>`;
+quizContainer.innerHTML = html;
+
+// Submit function
+function submitQuiz(){
+  let score = 0;
+  questions.forEach((q, idx) => {
+    const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+    if(selected && parseInt(selected.value) === q.answer){
+      score++;
+    }
+  });
+
+  localStorage.setItem("score", score);
+  localStorage.setItem("total", questions.length);
+  window.location.href = "result.html";
+}
+</script>
+
+
+

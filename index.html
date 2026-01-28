@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SQA Quiz Application</title>
+  <link rel="stylesheet" href="css/style.css">
+<script src="js/auth.js"></script>
+</head>
+<body>
+
+<header class="top-header">
+  <div class="logo">SQA Quiz Application</div>
+
+  <div class="header-actions">
+    <span>Already have an account?</span>
+    <button onclick="showLogin()">Login</button>
+     <span>Create an account?</span>
+    <button class="outline" onclick="showSignup()" >Sign Up</button>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-left">
+    <h1>Take a Quiz<br>to know more<br>about Software Qulaity Assurrance</h1>
+    <img src="images/hero.jpg">
+  </div>
+
+  <div class="hero-right">
+
+    <div id="signupBox">
+  <h2>Create Account</h2>
+
+  <div class="field">
+    <input id="name" type="text" placeholder="Full Name">
+  </div>
+
+  <div class="field">
+    <input id="email" type="email" placeholder="Email" onkeyup="checkEmail()">
+    <small id="emailMsg"></small>
+  </div>
+
+  <div class="field password-field">
+    <input id="password" type="password" placeholder="Password" onkeyup="checkPassword()">
+    <span class="eye" onclick="togglePassword()">👁</span>
+    <small id="passMsg"></small>
+  </div>
+
+  <button type="button" onclick="signup()">Sign Up</button>
+</div>
+
+<!-- LOGIN -->
+<div id="loginBox" style="display:none">
+  <h2>Login</h2>
+
+  <input id="loginEmail" type="email" placeholder="Email">
+  <small id="loginEmailMsg" class="error"></small>
+
+  <input id="loginPassword" type="password" placeholder="Password">
+  <small id="loginPassMsg" class="error"></small>
+
+  <div class="forgot">
+    <a href="#" onclick="forgotPassword()">Forgot password?</a>
+  </div>
+
+  <button onclick="login()">Login</button>
+</div>
+

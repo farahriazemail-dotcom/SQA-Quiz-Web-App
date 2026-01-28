@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Result</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="dash-header">
+  <span>QuizApplication</span>
+  <span>
+    👤 <b id="user"></b>
+    <button onclick="logout()">Logout</button>
+  </span>
+</header>
+
+<div id="result-container" class="center"></div>
+
+<script>
+document.getElementById("user").innerText = localStorage.getItem("name");
+
+function logout(){
+  window.location.href="index.html";
+}
+
+let score = parseInt(localStorage.getItem("score"));
+let total = parseInt(localStorage.getItem("total"));
+
+let message = "";
+if(score === total){
+  message = "Congratulations! Perfect score!";
+}else if(score >= 3){
+  message = "Good try!";}
+  else if(score >= 1){
+  message = "ohh! Better luck next time!";}
+else{
+  message = "Oops, try again! All answers are wrong.";
+}
+
+document.getElementById("result-container").innerHTML = `
+  <div class="result-card">
+    <h1>${score === total ? "🎉 Congratulations!" : "📊 Quiz Result"}</h1>
+    <p class="score-text">You answered</p>
+    <div class="score">${score} / ${total}</div>
+    <p class="message">${message}</p>
+
+    <div class="result-actions">
+      <button class="primary" onclick="goHome()">Back to Home</button>
+    </div>
+  </div>
+`;
+
+function goHome(){
+  window.location.href = "categories.html";
+}
+</script>
+
+</body>
+</html>
