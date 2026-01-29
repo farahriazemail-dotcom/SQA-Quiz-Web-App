@@ -6,15 +6,19 @@
 <link rel="stylesheet" href="css/style.css"> 
 </head> 
 <body> 
-  <header class="dash-header">
-<span>SQA Quiz Application</span> 
-<span> 👤 <b id="user"></b> <button onclick="logout()">Logout</button> </span> 
+ <header class="dash-header">
+  <div class="logo">SQA Quiz Application</div>
+  <div class="user-actions">
+    <span>👤 <b id="user"></b>
+    <button onclick="logout()">Logout</button></span>
+  </div>
 </header>
+<section>
 <h2 class="center">Choose Testing Type</h2>
 <div class="categories">
   <div class="card">
     <h2>Unit Testing</h2>
-    <p>Unit testing is a software testing technique in which individual units or modules are tested separately.</p>
+    <p>In Unit testing individual units or modules are tested separately.</p>
     <button onclick="start('Unit Testing')">Start Quiz</button>
   </div>
 
@@ -41,7 +45,15 @@
     <p>Regression testing checks that new changes do not break existing functionality.</p>
     <button onclick="start('Regression Testing')">Start Quiz</button>
   </div>
-</div>
+</div></section>
+<!-- FOOTER Section Code-->
+<!-- FOOTER Section -->
+<footer class="footer">
+  <h3 class="footer-name">
+    Made By <a href="https://www.linkedin.com/in/farah-riaz/" target="_blank">Farah Riaz</a>
+  </h3>
+</footer></html>
+
 <script> document.getElementById("user").innerText = localStorage.getItem("name"); 
 function start(cat){ localStorage.setItem("category", cat);
  window.location.href = "quiz.html"; } 

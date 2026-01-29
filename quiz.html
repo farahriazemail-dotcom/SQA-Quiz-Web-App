@@ -7,11 +7,11 @@
 <body>
 
 <header class="dash-header">
-  <span>QuizApplication</span>
-  <span>
-    👤 <b id="user"></b>
-    <button onclick="logout()">Logout</button>
-  </span>
+  <div class="logo">SQA Quiz Application</div>
+  <div class="user-actions">
+    <span>👤 <b id="user"></b>
+    <button onclick="logout()">Logout</button></span>
+  </div>
 </header>
 
 <h2 class="center" id="quiz-title"></h2>
@@ -19,6 +19,14 @@
 <div id="quiz-container">
   <!-- All questions will appear here -->
 </div>
+
+<!-- FOOTER Section Code-->
+<!-- FOOTER Section -->
+<footer class="footer">
+  <h3 class="footer-name">
+    Made By <a href="https://www.linkedin.com/in/farah-riaz/" target="_blank">Farah Riaz</a>
+  </h3>
+</footer>
 
 <script>
 document.getElementById("user").innerText = localStorage.getItem("name");
