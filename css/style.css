@@ -7,6 +7,7 @@
 main,
 section,
 .hero,
+.categories,
 #quiz-container,
 #result-container {
   flex: 1;
@@ -267,53 +268,60 @@ button:hover{
 }
 
 /* ================= CATEGORIES ================= */
-/* ================= CATEGORIES (FIXED) ================= */
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  padding: 30px;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 40px;
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  padding:40px;
+}
+.center {
+   color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  margin-top: 30px;
 }
 
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  display: flex;
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:0.3s;
+   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  padding-bottom: 20px;
+  padding-top: 15px;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.card:hover{
+  transform:translateY(-8px);
 }
 
-.card h2 {
-  color: #0A2540;
-  margin-bottom: 10px;
+.card h2{
+  color:#0A2540;
 }
+.card p{
+  color:#000;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.card button{
 
-.card p {
-  flex: 1;
+  background:#f97316;    
+  color:#fff;
+   margin-top: auto;
+   padding: 10px 12px;
   font-size: 14px;
-  color: #333;
-}
-
-.card button {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 8px;
-  background: #f97316;
-  color: #fff;
+  font-weight: bold;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;  
 }
-
 
 /* ================= DASH HEADER ================= */
 .dash-header{
