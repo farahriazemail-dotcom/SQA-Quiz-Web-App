@@ -7,7 +7,6 @@
 main,
 section,
 .hero,
-.categories,
 #quiz-container,
 #result-container {
   flex: 1;
@@ -268,60 +267,53 @@ button:hover{
 }
 
 /* ================= CATEGORIES ================= */
-.categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-  padding:40px;
-}
-.center {
-   color: #fff;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: 600;
-  margin-top: 30px;
+/* ================= CATEGORIES (FIXED) ================= */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 40px;
 }
 
-
-.card{
-  background:#fff;
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  transition:0.3s;
-   display: flex;
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
-  padding-top: 15px;
+  transition: transform 0.3s ease;
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.card:hover {
+  transform: translateY(-6px);
 }
 
-.card h2{
-  color:#0A2540;
+.card h2 {
+  color: #0A2540;
+  margin-bottom: 10px;
 }
-.card p{
-  color:#000;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-.card button{
 
-  background:#f97316;    
-  color:#fff;
-   margin-top: auto;
-   padding: 10px 12px;
+.card p {
+  flex: 1;
   font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  white-space: nowrap;  
+  color: #333;
 }
+
+.card button {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f97316;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 
 /* ================= DASH HEADER ================= */
 .dash-header{
@@ -655,3 +647,23 @@ button:hover{
   height: auto;
 }
 
+/* ================= CATEGORY MOBILE FIX ================= */
+
+@media (max-width: 600px) {
+  .categories {
+    grid-template-columns: 1fr; /* ✅ ONE CARD PER ROW */
+    padding: 15px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+}
