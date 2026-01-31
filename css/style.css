@@ -184,7 +184,11 @@ html, body {
   background:#fff;
   border-radius:20px;
   overflow:hidden;
- 
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+
 
 }
 
@@ -568,6 +572,21 @@ button:hover{
 }
 
 /* Small Phones */
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .left-side, .right-side {
+    width: 100%;
+  }
+
+  .left-side img {
+    width: 100%;
+    height: auto;
+  }
+
 @media (max-width: 480px) {
 
   .logo {
