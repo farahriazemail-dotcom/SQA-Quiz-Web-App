@@ -13,17 +13,26 @@ section,
   flex: 1;
 }
 body{
-  background:linear-gradient(120deg,#0A2540,#142E4F);
-  min-height:100vh;
-  display:flex;
-  flex-direction:column; 
+
+
   overflow-x: hidden;
   overflow-y: auto;
+   background:linear-gradient(120deg,#0A2540,#142E4F);
+  min-height:100svh; /* ✅ instead of 100vh */
+  display:flex;
+  flex-direction:column;
 }
 
 
 html, body {
   height: 100%;
+}
+.page-content{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0; /* ✅ breathing space */
 }
 
 /* ================= HEADER ================= */
@@ -181,14 +190,14 @@ html, body {
 .hero{
   display:flex;
   width:85%;
-  margin:50px auto;
+  margin:0 auto;
   background:#fff;
   border-radius:20px;
   overflow:hidden;
   justify-content: center;
   align-items: center;
   gap: 20px;
-
+max-width:1100px;
 
 
 }
@@ -498,8 +507,11 @@ button:hover{
 @media(max-width:900px){
   .hero{
     flex-direction:column;
-      min-height: 100vh;
-  height: auto;
+      min-height: 100svh;
+      height: auto;
+      max-width: 500px; /* optional, keeps it from stretching too much */
+       margin: 0 auto;
+        width: 100%;
   }
   .hero-left,.hero-right{
     width:100%;
@@ -527,6 +539,8 @@ button:hover{
     flex-direction: column;
     gap: 10px;
     text-align: center;
+     width:95%;
+    border-radius:12px;
   }
 
   .header-actions,
@@ -581,14 +595,11 @@ button:hover{
   .hero {
     flex-direction: column;
       padding: 10px;
-       width: 100%;
+       width: 95%;
     height: auto;
+    border-radius: 12px;
   }
 
-  .form-box {
-    width: 100%;
-    height: auto;
-  }
 
 }
   .left-side, .right-side {
