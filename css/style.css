@@ -18,6 +18,7 @@ body{
   display:flex;
   flex-direction:column; 
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
@@ -488,6 +489,7 @@ button:hover{
   text-align:center;
   font-weight:bold;
   color:#fff;
+  position: relative;
 }
 .footer a { 
   color: #0A2540; 
@@ -496,6 +498,8 @@ button:hover{
 @media(max-width:900px){
   .hero{
     flex-direction:column;
+      min-height: 100vh;
+  height: auto;
   }
   .hero-left,.hero-right{
     width:100%;
@@ -576,8 +580,15 @@ button:hover{
 
   .hero {
     flex-direction: column;
+      padding: 10px;
   }
 
+  .form-box {
+    width: 100%;
+    height: auto;
+  }
+
+}
   .left-side, .right-side {
     width: 100%;
   }
@@ -586,7 +597,7 @@ button:hover{
     width: 100%;
     height: auto;
   }
-
+}
 @media (max-width: 480px) {
 
   .logo {
