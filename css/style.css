@@ -581,6 +581,8 @@ button:hover{
   .hero {
     flex-direction: column;
       padding: 10px;
+       width: 100%;
+    height: auto;
   }
 
   .form-box {
@@ -597,7 +599,7 @@ button:hover{
     width: 100%;
     height: auto;
   }
-}
+
 @media (max-width: 480px) {
 
   .logo {
