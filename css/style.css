@@ -16,8 +16,11 @@ body{
   background:linear-gradient(120deg,#0A2540,#142E4F);
   min-height:100vh;
   display:flex;
-  flex-direction:column;
+  flex-direction:column; 
+  overflow-x: hidden;
 }
+
+
 html, body {
   height: 100%;
 }
@@ -508,3 +511,91 @@ button:hover{
     padding:20px;
   }
 }
+@media (max-width: 768px) {
+
+  /* Header */
+  .top-header,
+  .dash-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .header-actions,
+  .dash-header span {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .hero-left h1 {
+    font-size: 24px;
+  }
+
+  /* Categories */
+  .categories {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  /* Quiz */
+  #quiz-container {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+
+  /* Result */
+  .result-card {
+    padding: 40px 20px;
+  }
+
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .hero-left h1 {
+    font-size: 20px;
+  }
+
+  input {
+    padding: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .center {
+    font-size: 1.5rem;
+  }}
+  img {
+  max-width: 100%;
+  height: auto;
+}
+
